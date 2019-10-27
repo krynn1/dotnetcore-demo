@@ -12,8 +12,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  branches:
-    - master
+    batch: true
+    branches:
+        include:
+        - master
+
 pool:
   vmImage: 'ubuntu-latest'
 
