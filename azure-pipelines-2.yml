@@ -41,3 +41,10 @@ steps:
     appType: 'webApp'
     WebAppName: 'NIC-Coreapp'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+
+- task: AzurePowerShell@4
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise(83b0a651-0083-4050-b493-ae81845a61bb)'
+    ScriptType: 'InlineScript'
+    Inline: 'Unpublish-AzCdnEndpointContent -ProfileName nic-testcdn -ResourceGroupName NIC-test -EndpointName nic-test -PurgeContent "*"'
